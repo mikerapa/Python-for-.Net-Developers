@@ -52,4 +52,22 @@ version of those principles. You can see a more complete version [here](https://
 
 ![Zen of Python](images/zen.png)
 
+
+
+## Ecosystem Comparison
+Both .Net and Python have thriving communities and rich tooling. The chart below shows a high-level
+comparison.
+
+| |.Net|Python|
+|------|-----|-------|
+|Primary Uses|Desktop, web, gaming, mobile|Data science, web, artificial intelligence, scripting, automation |
+|Package Repository|NuGet|PyPi|
+|Package Management Tool|Nuget Package Manager|PIP|
+|Integrated Development Environment|Visual Studio, VS Code, Ryder|PyCharm, VS Code|
+|Web Frameworks|ASP .Net, Blazer|Flask, Django, Pyramid, FastAPI|
+|Testing Frameworks|MSTest, NUnit|PyTest, Testify, Unittest, DocTest|
+|Cloud Platform Support|AWS, Azure, Google Cloud|AWS, Azure, Google Cloud|
+|Desktop application development|WinForms, WPF, MAUI|PyQT, TKinter, Kivy|
+
+
 ## Performance
