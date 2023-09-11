@@ -13,10 +13,12 @@ def get_world_cup_data() -> list[Winner]:
     winners = [Winner(**w) for w in data]
     return winners
 
+
 def get_womens_winners_by_country(country_name: str) -> list[Winner]:
     # filter by country
-    f = lambda w: w.country == country_name and w.competition=="women"
-    return list(filter(f, get_world_cup_data()))
+    # f = lambda w: w.country == country_name and w.competition == "women"
+    return list(filter(lambda w: w.country == country_name and w.competition == "women", get_world_cup_data()))
+
 
 def get_mens_winners_by_country(country_name: str) -> list[Winner]:
     return [winner for winner in get_world_cup_data() if winner.country == country_name and winner.competition == "men"]
@@ -24,6 +26,11 @@ def get_mens_winners_by_country(country_name: str) -> list[Winner]:
 
 def get_winners_by_country(country_name: str) -> list[Winner]:
     return [winner for winner in get_world_cup_data() if winner.country == country_name]
+
+
+def get_mens_winners_all() -> list[Winner]:
+    return list(filter(lambda w: w.competition == "men", get_world_cup_data()))
+
 
 def print_world_cup_data(data: list[Winner]):
     # sort by year before printing
@@ -38,4 +45,5 @@ if __name__ == '__main__':
     # print_world_cup_data(get_womens_winners_by_country("Spain"))
     # print_world_cup_data(get_mens_winners_by_country("Spain"))
 
-    print_world_cup_data(get_winners_by_country("Spain"))
+    # print_world_cup_data(get_winners_by_country("Spain"))
+    print_world_cup_data(get_mens_winners_all())
