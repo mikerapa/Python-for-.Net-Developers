@@ -70,4 +70,116 @@ comparison.
 |Desktop application development|WinForms, WPF, MAUI|PyQT, TKinter, Kivy|
 
 
+## Code Example
+The following code example shows a simple Python program. This program opens a json 
+file containing data about which teams have won the FIFA World Cup. The winners are 
+simply printed to the console.
+
+
+```python
+import json
+from pydantic import BaseModel
+
+
+class Winner(BaseModel):
+    country: str
+    year: int
+    competition: str
+
+
+def get_world_cup_data() -> list[Winner]:
+    data = json.load(open("worldcupdata.json", "r"))
+    winners = [Winner(**w) for w in data]
+    return winners
+
+
+def print_world_cup_data(data: list[Winner]):
+    # sort by year before printing
+    data.sort(key=lambda w: w.year)
+    for winner in data:
+        print(f"{winner.year} - {winner.country} ({winner.competition})")
+
+
+def get_winners_by_country(country_name: str) -> list[Winner]:
+    return [winner for winner in get_world_cup_data() if winner.country == country_name]
+
+
+if __name__ == '__main__':
+    data = get_world_cup_data()
+    print_world_cup_data(data)
+```
+
+Most Python applications start with ``` if __name__ == '__main__': ``` and this line 
+of code probably looks odd for anyone coming to Python from another language.
+The Python interpreter will execute the code in this block if the file is run directly.
+There's a somewhat complex reason behind this, but you can just think of it as an equivelant 
+the ```Main``` method in C#.
+
+Notice that the class, function and for loops are defined without using curly braces.
+Python uses indentation to define blocks of code. 
+
+The ```get_winners_by_country``` function uses a special type of syntax called 'list comprehension'
+to filter the list of winners. Surrounding the return value in square brackets indicates that a list will 
+be returned. See [the Python documentation on comprehension](https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions) 
+for more information.
+
+## Web API Example
+The following example uses a package called [Flask](https://pypi.org/project/Flask/) to create a simple web API. 
+Flask is a popular web framework, but there are plenty of other options. To add Flask to your project, you can 
+run ```pip install flask``` from the command line. To run this example, you can run ```flask run``` 
+from the command line.
+
+
+```python
+from flask import Flask, request
+from random import randint
+
+app = Flask(__name__)
+
+
+@app.route("/")
+def hello():
+    return "Hello, World"
+
+@app.route("/nums")
+def get_nums():
+    limit: int = request.args.get('limit', default=10, type=int)
+    return [randint(0, 1000) for _ in range(limit)]
+```
+
+## Types
+Types in python are dynamic. This means that the type of a variable is 
+determined at runtime. The interpreter infers the type when a value is set.
+
+To see how the type inference works, you can run the following code.
+
+```python
+print([type(v) for v in [1, 1.0, True, [], {}, None, "1"]])
+```
+
+The output of this code is as follows: 
+```[<class 'int'>, <class 'float'>, <class 'bool'>, <class 'list'>, <class 'dict'>, <class 'NoneType'>, <class 'str'>]```
+
+Python has the concept of type hints, which were introduced in Python 3.5. See the
+[documentation on python.org](https://docs.python.org/3/library/typing.html) for 
+more details. Type hints are not like type definitions in C#, Java or C, because
+the type hints are not enforced by the interpreter. Type hints are used by IDEs
+and other tools to provide intellisense and other dev-time features.
+
+Consider the following code example:
+
+```python
+name_string: str = "Luca"
+name_string = 44
+print(name_string)
+print(type(name_string))
+```
+The name_string variable is declared with a string type hint and it is initialized
+with a string value. However, the value can be subsequently changed to an integer
+by setting the value to a number. A development tool such as PyCharm or VS Code
+will display a warning, but the code still executes without error. When the final
+line executes, the value of name_string is 44 and the type is int.
+
 ## Performance
+
+
