@@ -121,7 +121,7 @@ Python uses indentation to define blocks of code.
 The ```get_winners_by_country``` function uses a special type of syntax called 'list comprehension'
 to filter the list of winners. Surrounding the return value in square brackets indicates that a list will 
 be returned. See [the Python documentation on comprehension](https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions) 
-for more information.
+for more information. In C#, you would typically use a linq statement to filter a list of objects. List comprehension in Python and linq in C# can solve some of the same problems and they are both declaritive, but they are fundamentally different in other ways.
 
 ## Web API Example
 The following example uses a package called [Flask](https://pypi.org/project/Flask/) to create a simple web API. 
@@ -180,6 +180,72 @@ by setting the value to a number. A development tool such as PyCharm or VS Code
 will display a warning, but the code still executes without error. When the final
 line executes, the value of name_string is 44 and the type is int.
 
+
+## Packages
+Python has an enormous open source community with a vast number of packages available. [PyPi.org](https://pypi.org) is the
+largest package repository for Python packages. The most commonly used package management tool is called [PIP](https://pip.pypa.io/en/stable/).
+
+
 ## Performance
 
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.IO;
+using Newtonsoft.Json;
+
+public class WorldCupWinner
+{
+    public string Country { get; set; }
+    public int Year { get; set; }
+    public string Competition { get; set; }
+}
+
+public class Program
+{
+    public static void Main()
+    {
+        string jsonData = File.ReadAllText("world_cup_data.json");
+
+        List<WorldCupWinner> winners = JsonConvert.DeserializeObject<List<WorldCupWinner>>(jsonData);
+
+        var mensWinners = new HashSet<string>(
+            winners.Where(w => w.Competition == "men").Select(w => w.Country)
+        );
+
+        var womensWinners = winners
+            .Where(w => w.Competition == "women" && mensWinners.Contains(w.Country))
+            .Select(w => w.Country)
+            .Distinct();
+
+        foreach (var country in womensWinners)
+        {
+            Console.WriteLine(country);
+        }
+    }
+}
+
+
+```
+
+
+
+```python
+import json  
+from collections import Counter  
+  
+# Read the data from the JSON file  
+with open("world_cup_data.json", "r") as file:  
+    winners = json.load(file)  
+  
+# Create a set of countries that have won each competition  
+mens_winners = set(winner["country"] for winner in winners if winner["competition"] == "men")  
+womens_winners = set(winner["country"] for winner in winners if winner["competition"] == "women")  
+  
+# Find countries that have won both  
+countries_winning_both = mens_winners.intersection(womens_winners)  
+print(countries_winning_both)
+
+```
 
