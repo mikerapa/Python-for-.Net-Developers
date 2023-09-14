@@ -185,6 +185,21 @@ line executes, the value of name_string is 44 and the type is int.
 Python has an enormous open source community with a vast number of packages available. [PyPi.org](https://pypi.org) is the
 largest package repository for Python packages. The most commonly used package management tool is called [PIP](https://pip.pypa.io/en/stable/).
 
+## Python in Science, Data Science, Mathmatics and Statistics 
+Of course, there are many programming languages capable of handling and processing data. Python is a particularly
+popular choice for data science because it's considered easily approachable for those without a software development
+background. Python also has a rich ecosystem of packages for data science, which are created and maintained by the 
+community. Packages such as Pandas and NumPy are ubiquitous in the data science community.
+
+For many data professionals, the code they write is intended to analyze, process and visualize data. Jupyter Notebooks
+is a very popular data interactivity tool used for data science. Jupyter Notebooks allow the user to create a document
+which contains interactive code, visualizations and mark down text. There are also alternatives to Jupyter Notebooks,
+which have
+features for exceptionally large data sets, cloud processing and collaboration. To learn more about Jupyter Notebooks,
+I recommend following [Rob Mulla](https://www.youtube.com/watch?v=5pf0_bpNbkw) on Youtube or on other platforms.
+
+This repository includes a basic example of Jupiter Notebooks. See the 'WorldCup.ipynb' file in the root of this 
+repository.
 
 ## Performance
 
