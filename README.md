@@ -1,5 +1,6 @@
 # Python for .Net Developers
-This presentation was created by Mike Rapa for a presentation at TechBash 2023.
+This presentation was created by Mike Rapa for a presentation at TechBash 2023. All presentation files are on
+[GitHub](https://github.com/mikerapa/Python-for-.Net-Developers)
 
 ## About Python
 Python is a high-level, interpreted 
@@ -202,65 +203,23 @@ This repository includes a basic example of Jupiter Notebooks. See the 'WorldCup
 repository.
 
 ## Performance
+Python has a reputation for being slow. This is true in some cases, but not all. Python is an interpreted language,
+which means that the code is not compiled to machine code before it is executed. The Python interpreter is written
+in C, which is a compiled language. The interpreter is responsible for converting Python code to machine code
+at runtime, which impacts run-time performance. 
 
-```csharp
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.IO;
-using Newtonsoft.Json;
+However, evaluating runtime performance is a bit more complex than just 
+'compiled vs interpreted.' The performance of most applications is more highly impacted by IO and network latency than 
+language run-time. 
+Built-in functions and popular libraries are developed in C, and have been highly optimized for performance. This is why
+Python is so highly regarded for data science and other applications that require high performance, while the language
+itself has a reputation for being slow.
 
-public class WorldCupWinner
-{
-    public string Country { get; set; }
-    public int Year { get; set; }
-    public string Competition { get; set; }
-}
+Python is very extensible. You can write your libraries in C, Rust, Go, or other languages if your projects requires
+higher performance than Python alone can provide. Many popular librabries in the Python echosystem are written in C, or other
+compiled languages.
 
-public class Program
-{
-    public static void Main()
-    {
-        string jsonData = File.ReadAllText("world_cup_data.json");
-
-        List<WorldCupWinner> winners = JsonConvert.DeserializeObject<List<WorldCupWinner>>(jsonData);
-
-        var mensWinners = new HashSet<string>(
-            winners.Where(w => w.Competition == "men").Select(w => w.Country)
-        );
-
-        var womensWinners = winners
-            .Where(w => w.Competition == "women" && mensWinners.Contains(w.Country))
-            .Select(w => w.Country)
-            .Distinct();
-
-        foreach (var country in womensWinners)
-        {
-            Console.WriteLine(country);
-        }
-    }
-}
+Recent versions of Python (3.10 and 3.11) included significant performance optimizations. 
 
 
-```
-
-
-
-```python
-import json  
-from collections import Counter  
-  
-# Read the data from the JSON file  
-with open("world_cup_data.json", "r") as file:  
-    winners = json.load(file)  
-  
-# Create a set of countries that have won each competition  
-mens_winners = set(winner["country"] for winner in winners if winner["competition"] == "men")  
-womens_winners = set(winner["country"] for winner in winners if winner["competition"] == "women")  
-  
-# Find countries that have won both  
-countries_winning_both = mens_winners.intersection(womens_winners)  
-print(countries_winning_both)
-
-```
 
