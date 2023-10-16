@@ -54,6 +54,22 @@ version of those principles. You can see a more complete version [here](https://
 ![Zen of Python](images/zen.png)
 
 
+## Comparison between Python and C#
+|                   | *C#*            | *Python*                            |
+|-------------------|-----------------|-------------------------------------|
+| Types             | Static          | Dynamic                             |
+| Object Oriented   | Yes             | Yes                                 |
+| Functional        | Partial support | Partial Support                     |
+| Procedural        | Yes             | Yes                                 |
+| Compiled          | Yes             | No                                  |
+| Interpreted       | No              | Yes                                 |
+| Garbage Collected | Yes             | Yes                                 |
+| Open Source       | Yes             | Yes                                 |
+| Cross Platform    | Yes             | Yes                                 |
+| Syntax            | C-like          | Indentation, Significant whitespace |
+
+
+
 
 ## Ecosystem Comparison
 Both .Net and Python have thriving communities and rich tooling. The chart below shows a high-level
