@@ -1,6 +1,6 @@
 # Python for .Net Developers
-This presentation was created by Mike Rapa for a presentation at TechBash 2023. All presentation files are on
-[GitHub](https://github.com/mikerapa/Python-for-.Net-Developers)
+This presentation was created by Mike Rapa for TechBash 2023. All presentation files are on
+[GitHub](https://github.com/mikerapa/Python-for-.Net-Developers).
 
 ## About Python
 Python is a high-level, interpreted 
@@ -126,7 +126,7 @@ if __name__ == '__main__':
     print_world_cup_data(data)
 ```
 
-Most Python applications start with ``` if __name__ == '__main__': ``` and this line 
+Most Python applications start execution with ``` if __name__ == '__main__': ``` and this line 
 of code probably looks odd for anyone coming to Python from another language.
 The Python interpreter will execute the code in this block if the file is run directly.
 There's a somewhat complex reason behind this, but you can just think of it as an equivelant 
@@ -219,7 +219,7 @@ This repository includes a basic example of Jupiter Notebooks. See the 'WorldCup
 repository.
 
 ## Performance
-Python has a reputation for being slow. This is true in some cases, but not all. Python is an interpreted language,
+Python has a reputation for being slow. This is true in some cases, but not always. Python is an interpreted language,
 which means that the code is not compiled to machine code before it is executed. The Python interpreter is written
 in C, which is a compiled language. The interpreter is responsible for converting Python code to machine code
 at runtime, which impacts run-time performance. 
@@ -231,11 +231,11 @@ Built-in functions and popular libraries are developed in C, and have been highl
 Python is so highly regarded for data science and other applications that require high performance, while the language
 itself has a reputation for being slow.
 
-Python is very extensible. You can write your libraries in C, Rust, Go, or other languages if your projects requires
+Python is very extensible. You can write your libraries in C, Rust, Go, or other languages if your projects require
 higher performance than Python alone can provide. Many popular librabries in the Python echosystem are written in C, or other
 compiled languages.
 
-Recent versions of Python (3.10 and 3.11) included significant performance optimizations. 
+Recent versions of Python, especially 3.10 through 3.12, included significant performance optimizations. 
 
 
 
