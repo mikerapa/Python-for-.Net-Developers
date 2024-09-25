@@ -1,5 +1,5 @@
 # Python for .Net Developers
-This presentation was created by Mike Rapa for TechBash 2023. All presentation files are on
+This presentation was created by Mike Rapa for TechBash 2024. All presentation files are on
 [GitHub](https://github.com/mikerapa/Python-for-.Net-Developers).
 
 ## About Python
@@ -20,32 +20,19 @@ Since the project is open source, you can view the code and there are ways to co
 Python has been growing in popularity, at a time of vast choices. By Some measures, Python is the
 most popular programming language used today.
 
-### Tiobe Index
-The following chart shows the popularity of multiple programming languages, as measured by the [Tiobe Index.](https://www.tiobe.com/tiobe-index/)
-This data is from August 2023. According to the Tiobe Index, Python remains the most popular
-programming language, sitting above languages like C and Java, which had previously been the most popular. 
-See more about the Tiobe Index methodology [here](https://www.tiobe.com/tiobe-index/programminglanguages_definition/). 
-This index has special criteria for determining what is a programming language. For example, HTML is not considered a 
-programming language.
-
-![TIOBE Index](images/tiobe.png)
-
 
 ## Stack Overflow
 Stack Overflow is an extremely popular question and answer site for software development, and other topics. The trending
 chart below shows the popularity of Python, C, C#, C++, Go, Java, JavaScript, Rust, and TypeScript.
 The source of this data can be found [here](https://insights.stackoverflow.com/trends?tags=c%23%2Cpython%2Cjava%2Cgo%2Cjavascript%2Ctypescript%2Crust%2Cc%2B%2B%2Cc). 
-The data below was captured in August 2023. 
-
-![Stack Overflow](images/so.png)
+The data below was captured in August 2024. 
 
 
 ## IEEE Spectrum
 IEEE Spectrum is a magazine and website that covers topics related to electrical engineering, software engineering 
 and computer science. See [this post ](https://spectrum.ieee.org/the-top-programming-languages-2023)from IEEE Spectrum 
-to review the parameters of this ranking from August 2023. 
+to review the parameters of this ranking from August 2024. 
 
-![img.png](images/ieee.png)
 
 ## Zen of Python
 Python has a set of guiding principles, which are referred to as the Zen of Python. The following is a simplified 
